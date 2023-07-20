@@ -3,8 +3,17 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styles: [
+    '.selected {color:white;background-color:red;padding:10px;margin:10px}',
+    '.unselected {background-color:white;padding:10px;margin:10px}',
+  ],
 })
 export class AppComponent {
-  title = 'ch13-ex400';
+  selectedAnimal = 'cat';
+  animals = ['cat', 'dog', 'zebra', 'giraffe'];
+  onAnimalClicked(event: Event) {
+    const clickedAnimal = (event.target as HTMLElement).innerHTML.trim();
+    this.selectedAnimal = clickedAnimal;
+
+  }
 }
